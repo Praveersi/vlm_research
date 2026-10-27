@@ -10,8 +10,15 @@ SEN1FLOODS_DIR = RAW_DIR / "sen1floods11_v1.1"
 S2_DIR = SEN1FLOODS_DIR / "data" / "S2L1CHand"   # 13-band L1C, files named <id>_S2Hand.tif
 LABEL_DIR = SEN1FLOODS_DIR / "data" / "LabelHand"  # files named <id>_LabelHand.tif
 PROCESSED_DIR = DATA_DIR / "processed"
+PROCESSED_128_DIR = DATA_DIR / "processed_128"
+PROCESSED_128_COVERED_DIR = DATA_DIR / "processed_128_covered"
 RESULTS_DIR = ROOT / "results"
 FIGURES_DIR = RESULTS_DIR / "figures"
+
+# --- Image / Tile Configuration ---
+IMAGE_SIZE_ORIGINAL = 512
+IMAGE_SIZE_TARGET = 128
+
 
 # --- Dataset ---
 HF_REPO_ID = "blumenstiel/Sen1Floods11"

@@ -1,0 +1,436 @@
+{
+  "meta": {
+    "source": "D:\\vlm_research\\vlm_research\\results\\model_result",
+    "n_tiles": 1500,
+    "n_parent_chips": 103,
+    "wet_threshold_water_fraction": 0.005,
+    "degenerate_share_threshold": 0.9,
+    "bootstrap": {
+      "unit": "parent_chip",
+      "n_resamples": 2000,
+      "seed": 42,
+      "ci": "percentile 2.5-97.5"
+    },
+    "notes": [
+      "Trace tiles (0 < water_fraction <= 0.005) are excluded from all metrics.",
+      "No stage 2 metric uses dry tiles: their stage 2 image is identical to stage 1.",
+      "Unparseable Yes/No answers count as 'not Yes'; counts are under 'unparsed'.",
+      "Degeneracy is judged on stage 1 answers of dry + wet tiles."
+    ]
+  },
+  "models": {
+    "qwen2_5_vl_7b": {
+      "model_name": "Qwen2.5-VL-7B-Instruct",
+      "tile_groups": {
+        "wet": 712,
+        "dry": 702,
+        "trace": 86
+      },
+      "unparsed": {
+        "pope_stage1": 0,
+        "pope_stage2": 0,
+        "json_stage1": 0,
+        "json_stage2": 0
+      },
+      "field_degeneracy": {
+        "pope": {
+          "mode": true,
+          "share": 0.5177,
+          "n": 1414,
+          "degenerate": false
+        },
+        "json_flood_present": {
+          "mode": true,
+          "share": 0.7645,
+          "n": 1414,
+          "degenerate": false
+        },
+        "json_water_percentage": {
+          "mode": 75.0,
+          "share": 0.3246,
+          "n": 1414,
+          "degenerate": false
+        },
+        "json_location": {
+          "mode": "center",
+          "share": 0.5113,
+          "n": 1414,
+          "degenerate": false
+        }
+      },
+      "metrics": {
+        "pope_detection_rate": {
+          "label": "POPE detection rate (wet, stage 1)",
+          "unit": "%",
+          "numerator": 423.0,
+          "denominator": 712.0,
+          "n_tiles": 712,
+          "status": "ok",
+          "value": 59.41,
+          "ci95": [
+            53.89,
+            65.24
+          ]
+        },
+        "pope_dry_false_alarm_rate": {
+          "label": "POPE false-alarm rate (dry, stage 1)",
+          "unit": "%",
+          "numerator": 309.0,
+          "denominator": 702.0,
+          "n_tiles": 702,
+          "status": "ok",
+          "value": 44.02,
+          "ci95": [
+            38.4,
+            49.62
+          ]
+        },
+        "pope_accuracy": {
+          "label": "POPE accuracy (dry + wet, stage 1)",
+          "unit": "%",
+          "numerator": 816.0,
+          "denominator": 1414.0,
+          "n_tiles": 1414,
+          "status": "ok",
+          "value": 57.71,
+          "ci95": [
+            53.86,
+            61.43
+          ]
+        },
+        "pope_precision": {
+          "label": "POPE precision (dry + wet, stage 1)",
+          "unit": "%",
+          "numerator": 423.0,
+          "denominator": 732.0,
+          "n_tiles": 732,
+          "status": "ok",
+          "value": 57.79,
+          "ci95": [
+            49.25,
+            65.88
+          ]
+        },
+        "pope_f1": {
+          "label": "POPE F1 (dry + wet, stage 1)",
+          "unit": "%",
+          "numerator": 846.0,
+          "denominator": 1444.0,
+          "n_tiles": 1414,
+          "status": "ok",
+          "value": 58.59,
+          "ci95": [
+            52.68,
+            63.68
+          ]
+        },
+        "pope_persistence": {
+          "label": "POPE persistence (wet, Yes on s1 -> Yes on s2)",
+          "unit": "%",
+          "numerator": 323.0,
+          "denominator": 423.0,
+          "n_tiles": 423,
+          "status": "ok",
+          "value": 76.36,
+          "ci95": [
+            71.54,
+            81.32
+          ]
+        },
+        "pope_dry_s1_s2_agreement": {
+          "label": "POPE dry-tile s1/s2 agreement (sanity check)",
+          "unit": "%",
+          "numerator": 690.0,
+          "denominator": 702.0,
+          "n_tiles": 702,
+          "status": "ok",
+          "value": 98.29,
+          "ci95": [
+            97.1,
+            99.29
+          ]
+        },
+        "json_parse_rate": {
+          "label": "JSON parse rate (stage 1)",
+          "unit": "%",
+          "numerator": 1414.0,
+          "denominator": 1414.0,
+          "n_tiles": 1414,
+          "status": "ok",
+          "value": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ]
+        },
+        "json_detection_rate": {
+          "label": "JSON detection rate (wet, stage 1)",
+          "unit": "%",
+          "numerator": 545.0,
+          "denominator": 712.0,
+          "n_tiles": 712,
+          "status": "ok",
+          "value": 76.54,
+          "ci95": [
+            70.59,
+            82.49
+          ]
+        },
+        "json_dry_false_alarm_rate": {
+          "label": "JSON false-alarm rate (dry, stage 1)",
+          "unit": "%",
+          "numerator": 536.0,
+          "denominator": 702.0,
+          "n_tiles": 702,
+          "status": "ok",
+          "value": 76.35,
+          "ci95": [
+            69.6,
+            82.66
+          ]
+        },
+        "json_persistence": {
+          "label": "JSON persistence (wet, True on s1 -> True on s2)",
+          "unit": "%",
+          "numerator": 495.0,
+          "denominator": 545.0,
+          "n_tiles": 545,
+          "status": "ok",
+          "value": 90.83,
+          "ci95": [
+            87.95,
+            93.48
+          ]
+        },
+        "json_water_mae": {
+          "label": "JSON water % MAE (dry + wet, stage 1)",
+          "unit": "pp",
+          "numerator": 55259.29,
+          "denominator": 1414.0,
+          "n_tiles": 1414,
+          "status": "ok",
+          "value": 39.08,
+          "ci95": [
+            35.38,
+            42.74
+          ]
+        },
+        "json_quadrant_match_rate": {
+          "label": "JSON quadrant match (wet, flood_present True)",
+          "unit": "%",
+          "numerator": 62.0,
+          "denominator": 545.0,
+          "n_tiles": 545,
+          "status": "ok",
+          "value": 11.38,
+          "ci95": [
+            8.22,
+            14.53
+          ]
+        }
+      }
+    },
+    "llava_1_5_7b": {
+      "model_name": "LLaVA-1.5-7B-hf",
+      "tile_groups": {
+        "wet": 712,
+        "dry": 702,
+        "trace": 86
+      },
+      "unparsed": {
+        "pope_stage1": 0,
+        "pope_stage2": 0,
+        "json_stage1": 0,
+        "json_stage2": 0
+      },
+      "field_degeneracy": {
+        "pope": {
+          "mode": false,
+          "share": 0.8395,
+          "n": 1414,
+          "degenerate": false
+        },
+        "json_flood_present": {
+          "mode": false,
+          "share": 1.0,
+          "n": 1414,
+          "degenerate": true
+        },
+        "json_water_percentage": {
+          "mode": 0.0,
+          "share": 1.0,
+          "n": 1414,
+          "degenerate": true
+        },
+        "json_location": {
+          "mode": "none",
+          "share": 0.8161,
+          "n": 1414,
+          "degenerate": false
+        }
+      },
+      "metrics": {
+        "pope_detection_rate": {
+          "label": "POPE detection rate (wet, stage 1)",
+          "unit": "%",
+          "numerator": 196.0,
+          "denominator": 712.0,
+          "n_tiles": 712,
+          "status": "ok",
+          "value": 27.53,
+          "ci95": [
+            21.94,
+            33.48
+          ]
+        },
+        "pope_dry_false_alarm_rate": {
+          "label": "POPE false-alarm rate (dry, stage 1)",
+          "unit": "%",
+          "numerator": 31.0,
+          "denominator": 702.0,
+          "n_tiles": 702,
+          "status": "ok",
+          "value": 4.42,
+          "ci95": [
+            2.76,
+            6.19
+          ]
+        },
+        "pope_accuracy": {
+          "label": "POPE accuracy (dry + wet, stage 1)",
+          "unit": "%",
+          "numerator": 867.0,
+          "denominator": 1414.0,
+          "n_tiles": 1414,
+          "status": "ok",
+          "value": 61.32,
+          "ci95": [
+            55.64,
+            67.32
+          ]
+        },
+        "pope_precision": {
+          "label": "POPE precision (dry + wet, stage 1)",
+          "unit": "%",
+          "numerator": 196.0,
+          "denominator": 227.0,
+          "n_tiles": 227,
+          "status": "ok",
+          "value": 86.34,
+          "ci95": [
+            79.46,
+            92.28
+          ]
+        },
+        "pope_f1": {
+          "label": "POPE F1 (dry + wet, stage 1)",
+          "unit": "%",
+          "numerator": 392.0,
+          "denominator": 939.0,
+          "n_tiles": 1414,
+          "status": "ok",
+          "value": 41.75,
+          "ci95": [
+            34.66,
+            48.79
+          ]
+        },
+        "pope_persistence": {
+          "label": "POPE persistence (wet, Yes on s1 -> Yes on s2)",
+          "unit": "%",
+          "numerator": 77.0,
+          "denominator": 196.0,
+          "n_tiles": 196,
+          "status": "ok",
+          "value": 39.29,
+          "ci95": [
+            30.61,
+            48.17
+          ]
+        },
+        "pope_dry_s1_s2_agreement": {
+          "label": "POPE dry-tile s1/s2 agreement (sanity check)",
+          "unit": "%",
+          "numerator": 702.0,
+          "denominator": 702.0,
+          "n_tiles": 702,
+          "status": "ok",
+          "value": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ]
+        },
+        "json_parse_rate": {
+          "label": "JSON parse rate (stage 1)",
+          "unit": "%",
+          "numerator": 1414.0,
+          "denominator": 1414.0,
+          "n_tiles": 1414,
+          "status": "ok",
+          "value": 100.0,
+          "ci95": [
+            100.0,
+            100.0
+          ]
+        },
+        "json_detection_rate": {
+          "label": "JSON detection rate (wet, stage 1)",
+          "unit": "%",
+          "numerator": 0.0,
+          "denominator": 712.0,
+          "n_tiles": 712,
+          "status": "degenerate",
+          "value": null,
+          "ci95": null,
+          "reason": "json_flood_present = False for 100.0% of answers"
+        },
+        "json_dry_false_alarm_rate": {
+          "label": "JSON false-alarm rate (dry, stage 1)",
+          "unit": "%",
+          "numerator": 0.0,
+          "denominator": 702.0,
+          "n_tiles": 702,
+          "status": "degenerate",
+          "value": null,
+          "ci95": null,
+          "reason": "json_flood_present = False for 100.0% of answers"
+        },
+        "json_persistence": {
+          "label": "JSON persistence (wet, True on s1 -> True on s2)",
+          "unit": "%",
+          "numerator": 0.0,
+          "denominator": 0.0,
+          "n_tiles": 0,
+          "status": "degenerate",
+          "value": null,
+          "ci95": null,
+          "reason": "json_flood_present = False for 100.0% of answers"
+        },
+        "json_water_mae": {
+          "label": "JSON water % MAE (dry + wet, stage 1)",
+          "unit": "pp",
+          "numerator": 16490.59,
+          "denominator": 1414.0,
+          "n_tiles": 1414,
+          "status": "degenerate",
+          "value": null,
+          "ci95": null,
+          "reason": "json_water_percentage = 0.0 for 100.0% of answers"
+        },
+        "json_quadrant_match_rate": {
+          "label": "JSON quadrant match (wet, flood_present True)",
+          "unit": "%",
+          "numerator": 0.0,
+          "denominator": 0.0,
+          "n_tiles": 0,
+          "status": "degenerate",
+          "value": null,
+          "ci95": null,
+          "reason": "json_flood_present = False for 100.0% of answers"
+        }
+      }
+    }
+  },
+  "table_markdown": "| Metric | Qwen2.5-VL-7B-Instruct | LLaVA-1.5-7B-hf |\n| :--- | :---: | :---: |\n| POPE detection rate (wet, stage 1) | 59.4% [53.9, 65.2] (n=712) | 27.5% [21.9, 33.5] (n=712) |\n| POPE false-alarm rate (dry, stage 1) | 44.0% [38.4, 49.6] (n=702) | 4.4% [2.8, 6.2] (n=702) |\n| POPE accuracy (dry + wet, stage 1) | 57.7% [53.9, 61.4] (n=1414) | 61.3% [55.6, 67.3] (n=1414) |\n| POPE precision (dry + wet, stage 1) | 57.8% [49.2, 65.9] (n=732) | 86.3% [79.5, 92.3] (n=227) |\n| POPE F1 (dry + wet, stage 1) | 58.6% [52.7, 63.7] (n=1414) | 41.8% [34.7, 48.8] (n=1414) |\n| POPE persistence (wet, Yes on s1 -> Yes on s2) | 76.4% [71.5, 81.3] (n=423) | 39.3% [30.6, 48.2] (n=196) |\n| POPE dry-tile s1/s2 agreement (sanity check) | 98.3% [97.1, 99.3] (n=702) | 100.0% [100.0, 100.0] (n=702) |\n| JSON parse rate (stage 1) | 100.0% [100.0, 100.0] (n=1414) | 100.0% [100.0, 100.0] (n=1414) |\n| JSON detection rate (wet, stage 1) | 76.5% [70.6, 82.5] (n=712) | degenerate |\n| JSON false-alarm rate (dry, stage 1) | 76.3% [69.6, 82.7] (n=702) | degenerate |\n| JSON persistence (wet, True on s1 -> True on s2) | 90.8% [88.0, 93.5] (n=545) | degenerate |\n| JSON water % MAE (dry + wet, stage 1) | 39.1 [35.4, 42.7] (n=1414) | degenerate |\n| JSON quadrant match (wet, flood_present True) | 11.4% [8.2, 14.5] (n=545) | degenerate |"
+}

@@ -1,0 +1,145 @@
+{
+    "benchmark_meta": {
+        "dataset": "Sen1Floods11",
+        "resolution": "128x128",
+        "total_test_samples": 1500,
+        "gt_distribution": {
+            "dry_control": 598,
+            "moderate_flood": 459,
+            "severe_flood": 244,
+            "cloud_obscured": 199
+        }
+    },
+    "qwen_2_5_vl_7b": {
+        "model_name": "Qwen2.5-VL-7B-Instruct",
+        "total_normal_tested": 1500,
+        "tp": 423,
+        "tn": 442,
+        "fp": 344,
+        "fn": 291,
+        "accuracy": 57.67,
+        "precision": 55.15,
+        "recall": 59.24,
+        "f1_score": 57.12,
+        "normal_hallucination_rate": 43.77,
+        "total_masked_tested": 1500,
+        "masked_pope_hallucinations": 759,
+        "masked_hallucination_rate_pope": 50.6,
+        "masked_json_hallucinations": 1164,
+        "masked_hallucination_rate_json": 77.6,
+        "perturbation_delta_accuracy": 8.27,
+        "positive_rate_stage1": 51.13,
+        "positive_rate_stage2": 50.6,
+        "positive_rate_drop": 0.53,
+        "spatial_quadrant_faithfulness": 10.87,
+        "spatial_matches": 46,
+        "spatial_evaluated_tp": 423,
+        "water_percentage_mae": 38.8,
+        "water_samples_evaluated": 1500,
+        "avg_latency_sec": 2.83,
+        "tier_summary": {
+            "cloud_obscured": {
+                "total": 199,
+                "correct": 111,
+                "accuracy": 55.78,
+                "tp": 29,
+                "tn": 82,
+                "fp": 34,
+                "fn": 54
+            },
+            "severe_flood": {
+                "total": 244,
+                "correct": 171,
+                "accuracy": 70.08,
+                "tp": 171,
+                "tn": 0,
+                "fp": 0,
+                "fn": 73
+            },
+            "dry_control": {
+                "total": 598,
+                "correct": 321,
+                "accuracy": 53.68,
+                "tp": 0,
+                "tn": 321,
+                "fp": 277,
+                "fn": 0
+            },
+            "moderate_flood": {
+                "total": 459,
+                "correct": 262,
+                "accuracy": 57.08,
+                "tp": 223,
+                "tn": 39,
+                "fp": 33,
+                "fn": 164
+            }
+        }
+    },
+    "llava_1_5_7b": {
+        "model_name": "LLaVA-1.5-7B-hf",
+        "total_normal_tested": 1500,
+        "tp": 196,
+        "tn": 747,
+        "fp": 39,
+        "fn": 518,
+        "accuracy": 62.87,
+        "precision": 83.4,
+        "recall": 27.45,
+        "f1_score": 41.31,
+        "normal_hallucination_rate": 4.96,
+        "total_masked_tested": 1500,
+        "masked_pope_hallucinations": 150,
+        "masked_hallucination_rate_pope": 10.0,
+        "masked_json_hallucinations": 0,
+        "masked_hallucination_rate_json": 0.0,
+        "perturbation_delta_accuracy": -27.13,
+        "positive_rate_stage1": 15.67,
+        "positive_rate_stage2": 10.0,
+        "positive_rate_drop": 5.67,
+        "spatial_quadrant_faithfulness": 0.0,
+        "spatial_matches": 0,
+        "spatial_evaluated_tp": 196,
+        "water_percentage_mae": 11.0,
+        "water_samples_evaluated": 1500,
+        "avg_latency_sec": 2.91,
+        "tier_summary": {
+            "cloud_obscured": {
+                "total": 199,
+                "correct": 129,
+                "accuracy": 64.82,
+                "tp": 19,
+                "tn": 110,
+                "fp": 6,
+                "fn": 64
+            },
+            "severe_flood": {
+                "total": 244,
+                "correct": 88,
+                "accuracy": 36.07,
+                "tp": 88,
+                "tn": 0,
+                "fp": 0,
+                "fn": 156
+            },
+            "dry_control": {
+                "total": 598,
+                "correct": 572,
+                "accuracy": 95.65,
+                "tp": 0,
+                "tn": 572,
+                "fp": 26,
+                "fn": 0
+            },
+            "moderate_flood": {
+                "total": 459,
+                "correct": 154,
+                "accuracy": 33.55,
+                "tp": 89,
+                "tn": 65,
+                "fp": 7,
+                "fn": 298
+            }
+        }
+    }
+}

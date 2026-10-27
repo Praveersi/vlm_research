@@ -1,0 +1,12 @@
+Metric Category,Metric Name,Qwen 2.5 VL 7B,LLaVA 1.5 7B,Advantage / Winner,Academic Significance
+Normal Detection,Accuracy (%),57.67%,62.87%,LLaVA 1.5 (+5.2%),Overall classification correctness on POPE benchmark
+Normal Detection,Precision (%),55.15%,83.4%,LLaVA 1.5 (+28.2%),Low false alarm rate when predicting flood
+Normal Detection,Recall / Sensitivity (%),59.24%,27.45%,Qwen 2.5 VL (+31.8%),Capability to detect true flood occurrences (critical for disaster response)
+Normal Detection,F1-Score (%),57.12%,41.31%,Qwen 2.5 VL (+15.8%),Harmonic balance between precision and recall
+Hallucination,POPE HR on Dry Land (%),43.77%,4.96%,LLaVA 1.5 (lower),False positive alarms on confirmed dry control scenes
+Hallucination,Masked Counterfactual HR (POPE) (%),50.6%,10.0%,LLaVA 1.5 (lower),Hallucination triggered strictly by terrain context when water is inpainted
+Hallucination,Masked Counterfactual HR (JSON) (%),77.6%,0.0%,LLaVA 1.5 (lower),Structured JSON hallucination frequency under dry camouflage
+Faithfulness,Positive Prediction Drop (%),0.53%,5.67%,LLaVA 1.5 (+5.2% drop),Sensitivity of model prediction to the physical removal of flood evidence
+Faithfulness,Spatial Quadrant Faithfulness (%),10.87%,0.0%,Qwen 2.5 VL (+10.9%),Alignment between cited location and ground truth dominant water quadrant
+Quantification,Water Percentage MAE (%),38.8%,11.0%,LLaVA 1.5 (due to default 0%),Mean absolute error in surface water area quantification
+Operational,Average Inference Latency (s),2.83s,2.91s,Qwen 2.5 VL (0.08s faster),Compute latency on quantized 4-bit T4 GPU
